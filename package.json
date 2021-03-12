@@ -4,7 +4,8 @@
   "description": "",
   "main": "./app/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "@babel/preset-react": "^7.12.10",
     "babel-loader": "^8.2.2",
     "babel-plugin-jsx-control-statements": "^4.1.0",
+    "file-loader": "^6.2.0",
     "jsx-control-statements": "^3.2.8",
     "path": "^0.12.7",
     "react-hot-loader": "^4.13.0",

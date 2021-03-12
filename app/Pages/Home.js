@@ -4,9 +4,16 @@ import {Link} from "react-router-dom";
 class Home extends React.Component {
     render() {
         return(
-            <div>
+            <div className="cartaCentroGrande">
                 <h1> Bienvenido al sistema de gestión de ventas.</h1>
-                <Link to='/Login'>
+                <div className="card">
+                    <div className="card-body">
+
+                    </div>
+                </div>
+            </div>
+            /*
+             <Link to='/Login'>
                     <button class="btn btn-outline-dark">Login</button>
 
                 </Link>
@@ -15,7 +22,7 @@ class Home extends React.Component {
                 <Link to='/Register'>
                     <button class="btn btn-outline-dark">Registrar</button>
                 </Link>
-            </div>
+             */
         )
     }
 }

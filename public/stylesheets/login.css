@@ -4,10 +4,24 @@
 body{
     background: #b8fcf9;
 }
-.center {
-    margin-right: 35%;
+.centerLogin{
+    margin-right: 36%;
     margin-left: 35%;
-    margin-top: 8%;
+    margin-top: 2%;
+    align-items: center;
+    text-align: center;
+}
+.centerRegister{
+    margin-right: 30%;
+    margin-left: 30%;
+    margin-top: 4%;
+    align-items: center;
+    text-align: center;
+}
+.cartaCentroGrande{
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 2%;
     align-items: center;
     text-align: center;
 }

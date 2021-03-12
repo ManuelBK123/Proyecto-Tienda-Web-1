@@ -24,6 +24,19 @@ module.exports = {
                         ]
                     }
                 }
+            },
+            //Babel Loader
+            {
+                test: /\.(png|gif|jpg|svg|jpeg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'assets/[hash].[ext]'
+                        }
+                    }
+
+                ]
             }
         ]
     },
