@@ -105,6 +105,7 @@ class Register extends React.Component{
                                             id="idRol"
                                             value={this.state.idRol}
                                             onChange={this.changeField.bind(this)}>
+                                        <option value='0'>Elige Rol</option>
                                         <For each="item" index="idx" of={ this.state.rolList }>
                                             <option key={idx} value={item.idRol}>{item.rol}</option>
                                         </For>

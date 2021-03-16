@@ -21,9 +21,9 @@ class Header extends React.Component {
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a className="dropdown-item" href="/Productos">Lista de Productos</a></li>
-                                        <li><a className="dropdown-item" href="#">Agregar Nuevo Producto</a></li>
-                                        <li><a className="dropdown-item" href="#">Modificar Producto</a></li>
-                                        <li><a className="dropdown-item" href="#">Eliminar Producto</a></li>
+                                        <li><a className="dropdown-item" href="/AddProducto">Agregar Nuevo Producto</a></li>
+                                        <li><a className="dropdown-item" href="/DeleteProducto">Eliminar Producto</a></li>
+                                        <li><a className="dropdown-item" href="/UpdateProducto">Modificar Producto</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -34,9 +34,9 @@ class Header extends React.Component {
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <li><a className="dropdown-item" href="/Proveedores">Lista de Proveedores</a></li>
-                                        <li><a className="dropdown-item" href="#">Agregar Nuevo Proveedor</a></li>
-                                        <li><a className="dropdown-item" href="#">Eliminar Proveedor</a></li>
-                                        <li><a className="dropdown-item" href="#">Modificar Proveedor</a></li>
+                                        <li><a className="dropdown-item" href="/AddProveedor">Agregar Nuevo Proveedor</a></li>
+                                        <li><a className="dropdown-item" href="/DeleteProveedor">Eliminar Proveedor</a></li>
+                                        <li><a className="dropdown-item" href="/UpdateProveedor">Modificar Proveedor</a></li>
                                     </ul>
                                 </li>
                             </ul>
