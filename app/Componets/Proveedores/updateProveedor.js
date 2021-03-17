@@ -54,6 +54,7 @@ class updateProveedor extends  React.Component {
                                     <label htmlFor="floatingSelectGrid">Proveedor</label>
                                 </div>
                                 <br/>
+                                <br/>
                                 <div className="row g-2">
                                     <div className="col-md">
                                         <div className="form-floating">

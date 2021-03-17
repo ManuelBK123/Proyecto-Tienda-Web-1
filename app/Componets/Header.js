@@ -52,7 +52,8 @@ class Header extends React.Component {
                         </div>
 
                         <div className="navbar-nav justify-content-md-end">
-                            <a className="nav-link active" aria-current="page" href="/Login" onClick={this.salir.bind(this)}>Salir</a>
+                            <a className="nav-link active"
+                               aria-current="page" href="/Login" onClick={this.salir.bind(this)}>Salir</a>
                         </div>
                     </div>
                 </nav>

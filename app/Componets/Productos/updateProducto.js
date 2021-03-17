@@ -11,9 +11,18 @@ class updateProducto extends React.Component {
             descripcion : '',
             precio : '',
             existencias : '',
-            proveedorList : []
+            proveedorList : [],
+            productosList : []
         }
         this.proveedorList = []
+        this.productosList = []
+        APIInvoker.invokeGET('/productos/getAllProductos',data => {  //Entrará acá cuando status = true
+            this.setState({
+                productosList : data.data
+            })
+            console.log(this.state.productosList)
+        }, error => { //Entrará acá cuando status = false
+        })
         APIInvoker.invokeGET('/proveedores/getAllProveedores',data => {  //Entrará acá cuando status = true
             this.setState({
                 proveedorList : data.data
@@ -42,19 +51,35 @@ class updateProducto extends React.Component {
                                     <select className="form-select"
                                             id="idProveedor"
                                             name="idProveedor"
-                                            value={this.state.idProveedor}
+                                            value={this.state.idProducto}
                                             aria-label="Floating label select example"
                                             onChange={this.changeField.bind(this)}>
-                                        <option value='0'>Elige Proveedor</option>
-                                        <For each="item" index="idx" of={ this.state.proveedorList}>
-                                            <option key={idx} value={item.idProveedor}>{item.nombre}</option>
+                                        <option value='0'>Elige Producto</option>
+                                        <For each="item" index="idx" of={ this.state.productosList}>
+                                            <option key={idx} value={item.idProducto}>{item.nombre}</option>
                                         </For>
                                     </select>
-                                    <label htmlFor="floatingSelectGrid">Proveedor</label>
+                                    <label htmlFor="floatingSelectGrid">Producto</label>
                                 </div>
-                                <label ref={self=> this.idProveedor = self} className="form-text text-danger"></label>
+                                <br/>
+                                <br/>
                                 <div className="row g-2">
                                     <div className="col-md">
+                                        <div className="form-floating">
+                                            <select className="form-select"
+                                                    id="idProveedor"
+                                                    name="idProveedor"
+                                                    value={this.state.idProveedor}
+                                                    aria-label="Floating label select example"
+                                                    onChange={this.changeField.bind(this)}>
+                                                <option value='0'>Elige Proveedor</option>
+                                                <For each="item" index="idx" of={ this.state.proveedorList}>
+                                                    <option key={idx} value={item.idProveedor}>{item.nombre}</option>
+                                                </For>
+                                            </select>
+                                            <label htmlFor="floatingSelectGrid">Proveedor</label>
+                                        </div>
+                                        <label ref={self=> this.idProveedor = self} className="form-text text-danger"></label>
                                     </div>
                                     <div className="col-md">
                                         <div className="form-floating">
