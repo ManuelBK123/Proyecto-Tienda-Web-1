@@ -50,14 +50,18 @@ class Header extends React.Component {
                                 </li>
                             </ul>
                         </div>
+
                         <div className="navbar-nav justify-content-md-end">
-                            <a className="nav-link active" aria-current="page" href="/Login">Login</a>
+                            <a className="nav-link active" aria-current="page" href="/Login" onClick={this.salir.bind(this)}>Salir</a>
                         </div>
                     </div>
                 </nav>
             </div>
 
             /*
+             <div className="navbar-nav justify-content-md-end">
+                            <a className="nav-link active" aria-current="page" href="/Login">Login</a>
+                        </div>
                             <div className="navbar-nav justify-content-md-end">
                                 <a className="nav-link active" aria-current="page" href="/Login">Login</a>
                                 <a className="nav-link active" href="/Register">Register</a>
@@ -65,5 +69,9 @@ class Header extends React.Component {
              */
         )
     }
+   salir(e){
+        localStorage.removeItem('token')
+       this.props.history.push('/')
+   }
 }
 export default Header;

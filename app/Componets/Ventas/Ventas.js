@@ -42,9 +42,9 @@ class Ventas extends React.Component {
                                     <tbody>
                                     <tr>
                                         <th scope="row">1</th>
+                                        <td>1</td>
                                         <td>2</td>
-                                        <td>5</td>
-                                        <td>$75.8</td>
+                                        <td>$88</td>
                                         <td>15-03-2021      20:15:56</td>
                                         <td>1</td>
                                     </tr>
@@ -52,17 +52,17 @@ class Ventas extends React.Component {
                                         <th scope="row">1</th>
                                         <td>2</td>
                                         <td>5</td>
-                                        <td>$75.8</td>
+                                        <td>$22.3</td>
                                         <td>15-03-2021      20:15:56</td>
                                         <td>1</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>2</td>
-                                        <td>5</td>
-                                        <td>$75.8</td>
-                                        <td>15-03-2021      20:15:56</td>
+                                        <td>3</td>
                                         <td>1</td>
+                                        <td>$41.9</td>
+                                        <td>15-03-2021      20:15:56</td>
+                                        <td>2</td>
                                     </tr>
                                     </tbody>
                                 </table>

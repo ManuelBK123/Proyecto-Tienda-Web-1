@@ -41,7 +41,7 @@ class Login extends React.Component{
                 <br/>
                 <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                     <Link to='/Register'>
-                        <button className="btn btn-outline-dark">Registrar</button>
+                        <button className="btn btn-outline-dark">Registrarse</button>
                     </Link>
                 </div>
 
