@@ -192,6 +192,7 @@ class Register extends React.Component{
             APIInvoker.invokePOST('/users/signup', user, data => {
                 alert(data.message)
                 this.usernameOk = false
+                this.props.history.push('/')
             }, error => {
                 alert(error.message + error.error)
             })

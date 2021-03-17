@@ -110,6 +110,7 @@ class Login extends React.Component{
         APIInvoker.invokePOST('/users/login',user, data => {
             alert(data.message)
             window.localStorage.setItem('token', data.token)
+            this.props.history.push('/Home')
         }, error => {
             alert(error.message)
             this.pass.innerHTML = error.message

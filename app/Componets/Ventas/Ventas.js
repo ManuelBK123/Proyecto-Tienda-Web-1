@@ -36,7 +36,6 @@ class Ventas extends React.Component {
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Total</th>
                                         <th scope="col">Fecha</th>
-                                        <th scope="col">Hora</th>
                                         <th scope="col">ID Usuario</th>
                                     </tr>
                                     </thead>
@@ -46,8 +45,7 @@ class Ventas extends React.Component {
                                         <td>2</td>
                                         <td>5</td>
                                         <td>$75.8</td>
-                                        <td>15-03-2021</td>
-                                        <td>20:15:56</td>
+                                        <td>15-03-2021      20:15:56</td>
                                         <td>1</td>
                                     </tr>
                                     <tr>
@@ -55,8 +53,7 @@ class Ventas extends React.Component {
                                         <td>2</td>
                                         <td>5</td>
                                         <td>$75.8</td>
-                                        <td>15-03-2021</td>
-                                        <td>20:15:56</td>
+                                        <td>15-03-2021      20:15:56</td>
                                         <td>1</td>
                                     </tr>
                                     <tr>
@@ -64,8 +61,7 @@ class Ventas extends React.Component {
                                         <td>2</td>
                                         <td>5</td>
                                         <td>$75.8</td>
-                                        <td>15-03-2021</td>
-                                        <td>20:15:56</td>
+                                        <td>15-03-2021      20:15:56</td>
                                         <td>1</td>
                                     </tr>
                                     </tbody>
