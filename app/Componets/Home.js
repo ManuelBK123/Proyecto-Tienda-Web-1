@@ -9,6 +9,7 @@ class Home extends React.Component {
         this.state = {
             idProducto : '',
             cantidad : '',
+            total : '20',
             productosList : [],
             listSell : []
         }
@@ -80,15 +81,15 @@ class Home extends React.Component {
                                             <th scope="col">ID</th>
                                             <th scope="col">ID Producto</th>
                                             <th scope="col">Cantidad</th>
-                                            <th scope="col">Total</th>
+                                            <th scope="col">SubTotal</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>1</td>
-                                            <td>2</td>
-                                            <td>$88</td>
+                                            <th scope="row"></th>
+                                            <td></td>
+                                            <td></td>
+                                            <td>$</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -97,7 +98,7 @@ class Home extends React.Component {
                         </div>
                         <div>
                             <div className="d-grid gap-2 col-6 mx-auto justify-content-md-end">
-                                <label className="form-text text-dark fs-3">TOTAL: $</label>
+                                <label className="form-text text-dark fs-3">TOTAL: $ {this.state.total}</label>
                             </div>
                             <br/>
                             <div className="d-grid gap-2 col-6 mx-auto">
