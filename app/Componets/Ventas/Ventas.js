@@ -1,4 +1,5 @@
 import React from 'react'
+import APIInvoker from "../../utils/APIInvoker";
 class Ventas extends React.Component {
     constructor() {
         super();
@@ -6,16 +7,25 @@ class Ventas extends React.Component {
             ventasList: []
         }
         this.ventasList = []
-        //Extraer el catálogo de roles del backend
-        /*
-         APIInvoker.invokeGET('/roles/getAllRoles',data => {  //Entrará acá cuando status = true
-             this.setState({
-                 rolList : data.data
-             })
-             console.log(this.state.rolList)
-         }, error => { //Entrará acá cuando status = false
-         })
-         */
+        APIInvoker.invokeGET('/ventas/getAllVentas',data => {
+            this.setState({
+                 ventasList : data.data
+            })
+            console.log(this.state.ventasList)
+        }, error => {
+            alert(error.message)
+        })
+
+    }
+    actualizarTabla(e){
+        APIInvoker.invokeGET('/ventas/getAllVentas',data => {
+            this.setState({
+                ventasList : data.data
+            })
+            console.log(this.state.ventasList)
+        }, error => {
+            alert(error.message)
+        })
     }
     render() {
         return(
@@ -25,7 +35,9 @@ class Ventas extends React.Component {
                     <div className="card">
                         <div className="card-body">
                             <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button type="button" className="btn btn-outline-primary">Actualizar</button>
+                                <button type="button"
+                                        className="btn btn-outline-primary"
+                                        onClick={this.actualizarTabla.bind(this)}>Actualizar</button>
                             </div>
                             <div>
                                 <table className="table">
@@ -36,34 +48,18 @@ class Ventas extends React.Component {
                                         <th scope="col">Cantidad</th>
                                         <th scope="col">Total</th>
                                         <th scope="col">Fecha</th>
-                                        <th scope="col">ID Usuario</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>$88</td>
-                                        <td>15-03-2021      20:15:56</td>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>2</td>
-                                        <td>5</td>
-                                        <td>$22.3</td>
-                                        <td>15-03-2021      20:15:56</td>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>3</td>
-                                        <td>1</td>
-                                        <td>$41.9</td>
-                                        <td>15-03-2021      20:15:56</td>
-                                        <td>2</td>
-                                    </tr>
+                                        <For each="item" index="idx" of={ this.state.ventasList}>
+                                            <tr key={idx}>
+                                                <th scope="row">{item.idVenta}</th>
+                                                <td>{item.idProducto}</td>
+                                                <td>{item.cantidad}</td>
+                                                <td>{item.total}</td>
+                                                <td>{item.fecha}</td>
+                                            </tr>
+                                        </For>
                                     </tbody>
                                 </table>
                             </div>

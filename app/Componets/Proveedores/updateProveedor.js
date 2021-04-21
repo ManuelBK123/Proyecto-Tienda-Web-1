@@ -14,12 +14,13 @@ class updateProveedor extends  React.Component {
             proveedorList : []
         }
         this.proveedorList = []
-        APIInvoker.invokeGET('/proveedores/getAllProveedores',data => {  //Entrará acá cuando status = true
+        APIInvoker.invokeGET('/proveedores/getAllProveedores',data => {
             this.setState({
                 proveedorList : data.data
             })
             console.log(this.state.proveedorList)
-        }, error => { //Entrará acá cuando status = false
+        }, error => {
+            alert(error.message)
         })
     }
     changeField(e) {

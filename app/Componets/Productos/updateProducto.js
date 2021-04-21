@@ -17,12 +17,13 @@ class updateProducto extends React.Component {
         }
         this.proveedorList = []
         this.productosList = []
-        APIInvoker.invokeGET('/productos/getAllProductos',data => {  //Entrará acá cuando status = true
+        APIInvoker.invokeGET('/productos/getAllProductos',data => {
             this.setState({
                 productosList : data.data
             })
             console.log(this.state.productosList)
-        }, error => { //Entrará acá cuando status = false
+        }, error => {
+            alert(error.message)
         })
         APIInvoker.invokeGET('/proveedores/getAllProveedores',data => {  //Entrará acá cuando status = true
             this.setState({
@@ -79,7 +80,7 @@ class updateProducto extends React.Component {
                                             name="idProducto"
                                             value={this.state.idProducto}
                                             aria-label="Floating label select example"
-                                            onChange={this.changeFieldSelected.bind(this)}>
+                                            onChange={this.changeField.bind(this)}>
                                         <option value='0'>Elige Producto</option>
                                         <For each="item" index="idx" of={ this.state.productosList}>
                                             <option key={idx} value={item.idProducto}>{item.nombre}</option>

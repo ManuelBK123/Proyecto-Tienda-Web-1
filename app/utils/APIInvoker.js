@@ -61,7 +61,7 @@ class APIInvoker {
                 return response.json()
             })
             .then(data => {
-                //console.log("data :" + JSON.stringify(data))
+                console.log("data :" + JSON.stringify(data))
                 if (data.status)
                     okCallback(data)
                 else

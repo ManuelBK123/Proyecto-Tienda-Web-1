@@ -1,5 +1,4 @@
-var path = require('path');
-
+const path = require('path');
 
 module.exports = {
     mode: 'development',
@@ -41,6 +40,8 @@ module.exports = {
         ]
     },
     devServer: {
-        historyApiFallback : true
+        historyApiFallback : true,
+        compress: true,
+        port: 8080,
     }
 }
