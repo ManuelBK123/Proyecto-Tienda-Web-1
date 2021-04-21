@@ -4,9 +4,9 @@ module.exports = {
     mode: 'development',
     entry: './app/index.js',
     output: {
-        path: path.resolve(__dirname, 'public'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        publicPath: "/public"
+        publicPath: "/dist"
     },
     module: {
         rules: [
