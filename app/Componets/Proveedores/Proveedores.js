@@ -8,28 +8,21 @@ class Proveedores extends React.Component {
 
         }
         this.proveedoresList = []
-        //Extraer el catálogo de roles del backend
          APIInvoker.invokeGET('/proveedores/getAllProveedores',data => {
-             //Entrará acá cuando status = true
              this.setState({
                  proveedoresList : data.data
              })
-             console.log(this.state.proveedoresList)
          }, error => {
-             //Entrará acá cuando status = false
              alert(error.message)
          })
 
     }
     actualizarTabla(e){
         APIInvoker.invokeGET('/proveedores/getAllProveedores',data => {
-            //Entrará acá cuando status = true
             this.setState({
                 proveedoresList : data.data
             })
-            console.log(this.state.proveedoresList)
         }, error => {
-            //Entrará acá cuando status = false
             alert(error.message)
         })
     }

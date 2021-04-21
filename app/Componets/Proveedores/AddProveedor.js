@@ -13,10 +13,10 @@ class AddProveedor extends React.Component {
             telefono : ''
         }
         this.status = false
+
     }
 
     changeField(e) {
-
         let field = e.target.name
         let value = e.target.value
 
@@ -170,17 +170,25 @@ class AddProveedor extends React.Component {
             }
             APIInvoker.invokePOST('/proveedores/addProveedor',proveedor, data =>{
                 alert(data.message)
-                this.state.nombre = ''
-                this.state.ciudad = ''
-                this.state.pais= ''
-                this.state.codigoPostal = ''
-                this.state.telefono = ''
             },error =>{
                 alert(error.message + error.error)
             })
-            console.log(proveedor)
         }
-
+        this.setState(update(this.state, {
+            nombre : ''
+        }))
+        this.setState(update(this.state, {
+            ciudad : ''
+        }))
+        this.setState(update(this.state, {
+            pais : ''
+        }))
+        this.setState(update(this.state, {
+            codigoPostal : ''
+        }))
+        this.setState(update(this.state, {
+            telefono : ''
+        }))
     }
 }
 

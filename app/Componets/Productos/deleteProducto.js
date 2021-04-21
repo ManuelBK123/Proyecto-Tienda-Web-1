@@ -6,6 +6,7 @@ class deleteProducto extends React.Component {
     constructor() {
         super();
         this.state = {
+            idProducto : '',
             productosList : []
         }
         this.productosList = []
@@ -35,8 +36,8 @@ class deleteProducto extends React.Component {
                                 <h4> Eliminar Producto </h4>
                                 <div className="form-floating">
                                     <select className="form-select"
-                                            id="idProveedor"
-                                            name="idProveedor"
+                                            id="idProducto"
+                                            name="idProducto"
                                             value={this.state.idProducto}
                                             aria-label="Floating label select example"
                                             onChange={this.changeField.bind(this)}>
@@ -51,7 +52,8 @@ class deleteProducto extends React.Component {
                                 <br/>
                                 <div className="d-grid gap-2">
                                     <button className="btn btn-outline-danger"
-                                            type="button">Eliminar Producto
+                                            type="button"
+                                            onClick={this.eliminarProducto.bind(this)}>Eliminar Producto
                                     </button>
                                 </div>
                             </div>
@@ -61,6 +63,23 @@ class deleteProducto extends React.Component {
                 </div>
             </div>
         )
+    }
+    eliminarProducto(e){
+        let idProducto = this.state.idProducto
+        APIInvoker.invokeDELETE(`/productos/deleteProducto/${idProducto}`,
+            data => {
+                alert(data.message)
+            },
+            error => {
+                alert(error.message + error.error)
+            })
+        APIInvoker.invokeGET('/productos/getAllProductos',data => {  //Entrará acá cuando status = true
+            this.setState({
+                productosList : data.data
+            })
+            console.log(this.state.productosList)
+        }, error => { //Entrará acá cuando status = false
+        })
     }
 }
 export default deleteProducto;

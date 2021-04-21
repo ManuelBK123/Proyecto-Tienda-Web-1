@@ -14,12 +14,12 @@ class AddProducto extends React.Component {
             proveedorList : []
         }
         this.proveedorList = []
-        APIInvoker.invokeGET('/proveedores/getAllProveedores',data => {  //Entrará acá cuando status = true
+        APIInvoker.invokeGET('/proveedores/getAllProveedores',data => {
             this.setState({
                 proveedorList : data.data
             })
-            console.log(this.state.proveedorList)
-        }, error => { //Entrará acá cuando status = false
+        }, error => {
+            alert(error.message)
         })
     }
 
@@ -157,7 +157,7 @@ class AddProducto extends React.Component {
                             <div className="d-grid gap-2">
                                 <button className="btn btn-outline-success"
                                         type="button"
-                                        onClick={this.agregarProducto.bind(this)}>Registrar Proveedor
+                                        onClick={this.agregarProducto.bind(this)}>Registrar Producto
                                 </button>
                             </div>
                             <div ref={self => this.messageError = self}></div>
@@ -181,17 +181,25 @@ class AddProducto extends React.Component {
             }
             APIInvoker.invokePOST('/productos/addProducto',producto, data =>{
                 alert(data.message)
-                this.state.idProveedor = '0'
-                this.state.nombre = ''
-                this.state.descripcion = ''
-                this.state.precio = ''
-                this.state.existencias = ''
+                this.setState(update(this.state, {
+                    idProveedor : '0'
+                }))
+                this.setState(update(this.state, {
+                    nombre : ''
+                }))
+                this.setState(update(this.state, {
+                    descripcion : ''
+                }))
+                this.setState(update(this.state, {
+                    precio : ''
+                }))
+                this.setState(update(this.state, {
+                    existencias : ''
+                }))
             },error =>{
                 alert(error.message + error.error)
             })
-
         }
-
     }
 }
 export default AddProducto;

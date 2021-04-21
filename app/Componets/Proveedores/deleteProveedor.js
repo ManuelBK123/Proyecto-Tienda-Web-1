@@ -7,6 +7,7 @@ class deleteProveedor extends React.Component {
     constructor() {
         super();
         this.state = {
+            idProducto : '',
             proveedorList : []
         }
         this.proveedorList = []
@@ -20,7 +21,6 @@ class deleteProveedor extends React.Component {
     }
 
     changeField(e) {
-
         let field = e.target.name
         let value = e.target.value
 
@@ -28,6 +28,7 @@ class deleteProveedor extends React.Component {
             [field] : {$set : value}
         }))
     }
+
     render() {
         return(
             <div>
@@ -54,7 +55,8 @@ class deleteProveedor extends React.Component {
                                 <br/>
                                 <div className="d-grid gap-2">
                                     <button class="btn btn-outline-danger"
-                                            type="button">Eliminar Proveedor
+                                            type="button"
+                                            onClick={this.eliminarProveedor.bind(this)}>Eliminar Proveedor
                                     </button>
                                 </div>
                             </div>
@@ -64,6 +66,27 @@ class deleteProveedor extends React.Component {
                 </div>
             </div>
         )
+    }
+    eliminarProveedor(e){
+        let idProveedor = this.state.idProveedor
+        APIInvoker.invokeDELETE(`/proveedores/deleteProveedor/${idProveedor}`,
+            data => {
+                alert(data.message)
+            },
+            error => {
+                alert(error.message + error.error)
+            })
+        this.setState({
+            idProveedor : ''
+        })
+        APIInvoker.invokeGET('/productos/getAllProductos',data => {  //Entrará acá cuando status = true
+            this.setState({
+                productosList : data.data
+            })
+            console.log(this.state.productosList)
+        }, error => { //Entrará acá cuando status = false
+        })
+
     }
 }
 export default deleteProveedor;

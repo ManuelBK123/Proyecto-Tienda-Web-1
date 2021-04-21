@@ -17,6 +17,13 @@ class APIInvoker {
         }
         this.invoke(url,okCallback,failCallback,params)
     }
+    invokeDELETE(url, okCallback, failCallback){
+        let params = {
+            method: 'DELETE',
+            headers: this.getAPIHeader()
+        }
+        this.invoke(url,okCallback,failCallback,params)
+    }
 
     invokePUT(url, body, okCallback, failCallback){
         let params = {
@@ -54,7 +61,7 @@ class APIInvoker {
                 return response.json()
             })
             .then(data => {
-                console.log("data :" + JSON.stringify(data))
+                //console.log("data :" + JSON.stringify(data))
                 if (data.status)
                     okCallback(data)
                 else

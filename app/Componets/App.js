@@ -3,10 +3,10 @@ import {BrowserRouter,Switch,Route} from "react-router-dom";
 
 //componentes
 import Header from "./Header";
-import Footer from "./Footer"
+import Footer from "./Footer";
 import Home from "../Pages/Home";
 import NotFound from "../Pages/NotFound";
-import Login from './Login'
+import Login from './Login';
 import Register from "./Register";
 //productos
 import Productos from "./Productos/Productos";
@@ -24,7 +24,6 @@ import Ventas from "./Ventas/Ventas";
 
 class App extends React.Component{
     render() {
-
         return (
             <div>
                 <Header/>
@@ -56,7 +55,7 @@ class App extends React.Component{
                 <br/>
                 <Footer/>
             </div>
-            )
+        )
     }
 }
 

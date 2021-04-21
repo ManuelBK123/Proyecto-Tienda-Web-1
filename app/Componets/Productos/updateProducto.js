@@ -6,7 +6,8 @@ class updateProducto extends React.Component {
     constructor() {
         super();
         this.state = {
-            idProveedor : '0',
+            idProducto : '',
+            idProveedor : '',
             nombre : '',
             descripcion : '',
             precio : '',
@@ -39,6 +40,31 @@ class updateProducto extends React.Component {
             [field] : {$set : value}
         }))
     }
+    changeFieldSelected(e) {
+        let value = e.target.value
+
+        this.setState(update(this.state, {
+            [idProducto] : {$set : value}
+        }))
+        this.cambiarEstados()
+    }
+    cambiarEstados(){
+        this.setState(update(this.state, {
+            [idProveedor] : this.state.productosList[this.state.idProducto].idProveedor,
+        }))
+        this.setState(update(this.state, {
+            [nombre] : this.state.productosList[this.state.idProducto].nombre
+        }))
+        this.setState(update(this.state, {
+            [descripcion] : this.state.productosList.get(this.state.idProducto).descripcion,
+        }))
+        this.setState(update(this.state, {
+            [precio] : this.state.productosList.get(this.state.idProducto).precio,
+        }))
+        this.setState(update(this.state, {
+            [existencias] : this.state.productosList.get(this.state.idProducto).existencias
+        }))
+    }
     render() {
         return (
             <div>
@@ -49,11 +75,11 @@ class updateProducto extends React.Component {
                                 <h4> Actualizar Producto </h4>
                                 <div className="form-floating">
                                     <select className="form-select"
-                                            id="idProveedor"
-                                            name="idProveedor"
+                                            id="idProducto"
+                                            name="idProducto"
                                             value={this.state.idProducto}
                                             aria-label="Floating label select example"
-                                            onChange={this.changeField.bind(this)}>
+                                            onChange={this.changeFieldSelected.bind(this)}>
                                         <option value='0'>Elige Producto</option>
                                         <For each="item" index="idx" of={ this.state.productosList}>
                                             <option key={idx} value={item.idProducto}>{item.nombre}</option>

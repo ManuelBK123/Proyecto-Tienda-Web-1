@@ -8,25 +8,23 @@ class Productos extends React.Component {
             productList: []
         }
         this.productList = []
-        //Extraer el catálogo de roles del backend
-
-         APIInvoker.invokeGET('/productos/getAllProductos',data => {  //Entrará acá cuando status = true
+         APIInvoker.invokeGET('/productos/getAllProductos',data => {
              this.setState({
                  productList : data.data
              })
-             console.log(this.state.productList)
-         }, error => { //Entrará acá cuando status = false
+             //console.log(this.state.productList)
+         }, error => {
+             alert(error.message)
          })
-
     }
 
     actualizarTabla(e){
-        APIInvoker.invokeGET('/productos/getAllProductos',data => {  //Entrará acá cuando status = true
+        APIInvoker.invokeGET('/productos/getAllProductos',data => {
             this.setState({
                 productList : data.data
             })
-            console.log(this.state.productList)
-        }, error => { //Entrará acá cuando status = false
+        }, error => {
+            alert(error.message)
         })
     }
     render() {
