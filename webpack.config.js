@@ -4,13 +4,14 @@ module.exports = {
     mode: 'development',
     entry: './app/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
-        publicPath: "/dist"
+        publicPath: "/public"
     },
     module: {
         rules: [
             {
+                //Babel Loader
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
@@ -24,7 +25,6 @@ module.exports = {
                     }
                 }
             },
-            //Babel Loader
             {
                 test: /\.(png|gif|jpg|svg|jpeg)$/,
                 use: [
@@ -50,6 +50,6 @@ module.exports = {
     devServer: {
         historyApiFallback : true,
         compress: true,
-        port: 8080,
+        port: 8000,
     }
 }

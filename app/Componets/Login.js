@@ -1,7 +1,7 @@
 import React from 'react'
 import update from 'immutability-helper'
 import APIInvoker from "../utils/APIInvoker";
-import Logo from "../assets/images/logo.jpeg"
+import Logo from "../assets/images/Logo.jpeg"
 import {Link} from "react-router-dom";
 
 class Login extends React.Component{

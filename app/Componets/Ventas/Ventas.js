@@ -53,7 +53,7 @@ class Ventas extends React.Component {
                                     <tbody>
                                         <For each="item" index="idx" of={ this.state.ventasList}>
                                             <tr key={idx}>
-                                                <th scope="row">{item.idVenta}</th>
+                                                <th scope="row">{item.idventas}</th>
                                                 <td>{item.idProducto}</td>
                                                 <td>{item.cantidad}</td>
                                                 <td>{item.total}</td>

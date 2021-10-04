@@ -6,12 +6,12 @@ class updateProducto extends React.Component {
     constructor() {
         super();
         this.state = {
-            idProducto : '',
-            idProveedor : '',
+            idProducto : 0,
+            idProveedor : 0,
             nombre : '',
             descripcion : '',
-            precio : '',
-            existencias : '',
+            precio : 0,
+            existencias : 0,
             proveedorList : [],
             productosList : []
         }
@@ -42,29 +42,36 @@ class updateProducto extends React.Component {
         }))
     }
     changeFieldSelected(e) {
+        let field = e.target.name
         let value = e.target.value
+        this.setState(update(this.state, {
+            [field] : {$set : value}
+        }))
 
-        this.setState(update(this.state, {
-            [idProducto] : {$set : value}
-        }))
-        this.cambiarEstados()
     }
-    cambiarEstados(){
-        this.setState(update(this.state, {
-            [idProveedor] : this.state.productosList[this.state.idProducto].idProveedor,
-        }))
-        this.setState(update(this.state, {
-            [nombre] : this.state.productosList[this.state.idProducto].nombre
-        }))
-        this.setState(update(this.state, {
-            [descripcion] : this.state.productosList.get(this.state.idProducto).descripcion,
-        }))
-        this.setState(update(this.state, {
-            [precio] : this.state.productosList.get(this.state.idProducto).precio,
-        }))
-        this.setState(update(this.state, {
-            [existencias] : this.state.productosList.get(this.state.idProducto).existencias
-        }))
+    CambiarDatos(e){
+        let producto
+        APIInvoker.invokeGET(`/productos/getProductoId/${this.state.idProducto}`,data => {
+            producto = data.body
+            this.setState(update(this.state, {
+                [idProveedor] : producto.idProveedor,
+            }))
+            this.setState(update(this.state, {
+                [nombre] : producto.nombre
+            }))
+            this.setState(update(this.state, {
+                [descripcion] : producto.descripcion
+            }))
+            this.setState(update(this.state, {
+                [precio] : producto.precio
+            }))
+            this.setState(update(this.state, {
+                [existencias] : producto.existencias
+            }))
+            //console.log(this.state.productList)
+        }, error => {
+            alert(error.message)
+        })
     }
     render() {
         return (
@@ -80,13 +87,20 @@ class updateProducto extends React.Component {
                                             name="idProducto"
                                             value={this.state.idProducto}
                                             aria-label="Floating label select example"
-                                            onChange={this.changeField.bind(this)}>
+                                            onChange={this.changeFieldSelected.bind(this)}>
                                         <option value='0'>Elige Producto</option>
                                         <For each="item" index="idx" of={ this.state.productosList}>
                                             <option key={idx} value={item.idProducto}>{item.nombre}</option>
                                         </For>
                                     </select>
                                     <label htmlFor="floatingSelectGrid">Producto</label>
+                                </div>
+                                <br/>
+                                <div className="d-grid gap-2">
+                                    <button className="btn btn-outline-info"
+                                            type="button"
+                                            onClick={this.CambiarDatos.bind(this)}>Modificar
+                                    </button>
                                 </div>
                                 <br/>
                                 <br/>
